@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### Screenshort of running results
 
-![App Screenshot](./public/screenshot-running-results.png)
+![App Screenshot](./screenshot-running-results.png)
 
 Run for the production:
 
