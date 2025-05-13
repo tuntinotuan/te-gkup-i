@@ -2,7 +2,26 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+### Screenshort of running results
+
+![App Screenshot](./public/screenshot-running-results.png)
+
+Run for the production:
+
+```bash
+# first
+git clone https://github.com/tuntinotuan/te-gkup-i.git
+#
+cd te-gkup-i/
+#
+npm install
+#
+npm run build
+#
+npm run start
+```
+
+Run the development server:
 
 ```bash
 npm install
