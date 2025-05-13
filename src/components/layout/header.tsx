@@ -7,7 +7,7 @@ const Header = () => {
     <div className="flex px-4 py-5">
       <Link href="/">
         <Image
-          className="dark:invert cursor-pointer"
+          className="cursor-pointer"
           src="/geekup.svg"
           alt="Geek up logo"
           width={100}
