@@ -13,9 +13,9 @@ const ClientComponent = ({
   photoData,
   album,
 }: {
-  userData: [];
+  userData: { id: number; name: string; email: string };
   photoData: [];
-  album: any;
+  album: { id: number; title: string; userId: number };
 }) => {
   const router = useRouter();
   return (
@@ -42,9 +42,9 @@ const Main = ({
   photoData,
   album,
 }: {
-  userData: any;
+  userData: { id: number; name: string; email: string };
   photoData: [];
-  album: any;
+  album: { id: number; title: string; userId: number };
 }) => {
   return (
     <div className="bg-white rounded-lg p-5 shadow mt-3">
@@ -56,7 +56,7 @@ const Main = ({
         ></PersonInfo>
         <p className="text-lg font-semibold mt-5">{album.title}</p>
         <div className="grid grid-cols-6 gap-1 mt-5">
-          {photoData.map((item: any) => (
+          {photoData.map((item: { id: number; url: string; title: string }) => (
             <div key={item.id} className="relative flex items-start">
               <div className="absolute inset-0 hover:bg-black/40 transition-all cursor-pointer"></div>
               <Image src={item.url} width={20} height={50} alt=""></Image>

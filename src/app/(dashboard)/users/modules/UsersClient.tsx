@@ -33,48 +33,56 @@ const UsersClient = ({ data }: { data: [] }) => {
   }, []);
   console.log("users", users);
   // Map userId → user
-  const userMap = users && new Map(users.map((user) => [user.id, user]));
-  const newData = data.map((item: any) => ({
-    ...item,
-    actions: (
-      <ButtonLeftIcon
-        onClick={() => router.push(`/users/${item.id}`)}
-      ></ButtonLeftIcon>
-    ),
-    avatar: (
-      <UserAvatar
-        src={`https://ui-avatars.com/api/?background=random&name=${
-          item.name[0] + "+" + item.name.split(" ")[1]
-        }`}
-        alt={item.name}
-      ></UserAvatar>
-    ),
-    email: (
-      <a
-        href={`mailto:${item.email}`}
-        className="text-sm text-blue-500 cursor-pointer"
-      >
-        {item.email}
-      </a>
-    ),
-    phone: (
-      <a
-        href={`tel:${item.phone}`}
-        className="text-sm text-blue-500 cursor-pointer"
-      >
-        {item.phone}
-      </a>
-    ),
-    website: (
-      <a
-        href={`https://${item.website}/`}
-        target="_blank"
-        className="text-sm text-blue-500 cursor-pointer"
-      >
-        {item.website}
-      </a>
-    ),
-  }));
+  // const userMap = users && new Map(users.map((user) => [user.id, user]));
+  const newData = data.map(
+    (item: {
+      email: string;
+      phone: number;
+      website: string;
+      id: number;
+      name: string;
+    }) => ({
+      ...item,
+      actions: (
+        <ButtonLeftIcon
+          onClick={() => router.push(`/users/${item.id}`)}
+        ></ButtonLeftIcon>
+      ),
+      avatar: (
+        <UserAvatar
+          src={`https://ui-avatars.com/api/?background=random&name=${
+            item.name[0] + "+" + item.name.split(" ")[1]
+          }`}
+          alt={item.name}
+        ></UserAvatar>
+      ),
+      email: (
+        <a
+          href={`mailto:${item.email}`}
+          className="text-sm text-blue-500 cursor-pointer"
+        >
+          {item.email}
+        </a>
+      ),
+      phone: (
+        <a
+          href={`tel:${item.phone}`}
+          className="text-sm text-blue-500 cursor-pointer"
+        >
+          {item.phone}
+        </a>
+      ),
+      website: (
+        <a
+          href={`https://${item.website}/`}
+          target="_blank"
+          className="text-sm text-blue-500 cursor-pointer"
+        >
+          {item.website}
+        </a>
+      ),
+    })
+  );
 
   const columns = [
     {

@@ -5,7 +5,6 @@ import UserIcon from "@/components/icon/UserIcon";
 import TabPagination from "@/components/paginate/TabPagination";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Table } from "antd";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -13,7 +12,7 @@ const ClientComponent = ({
   userData,
   albumData,
 }: {
-  userData: [];
+  userData: { name: string; email: string };
   albumData: [];
 }) => {
   const router = useRouter();
@@ -36,9 +35,15 @@ const ClientComponent = ({
   );
 };
 
-const Main = ({ userData, data }: { userData: any; data: [] }) => {
+const Main = ({
+  userData,
+  data,
+}: {
+  userData: { name: string; email: string };
+  data: [];
+}) => {
   const router = useRouter();
-  const newData = data.map((item: any) => ({
+  const newData = data.map((item: { id: number }) => ({
     ...item,
     actions: (
       <ButtonLeftIcon

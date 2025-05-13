@@ -35,14 +35,16 @@ const AlbumsClient = ({ data }: { data: [] }) => {
   console.log("users", users);
   // Map userId → user
   const userMap = users && new Map(users.map((user) => [user.id, user]));
-  const newData = data.map((item: any) => ({
-    ...item,
-    actions: (
-      <ButtonLeftIcon
-        onClick={() => router.push(`/albums/${item.id}`)}
-      ></ButtonLeftIcon>
-    ),
-  }));
+  const newData = data.map(
+    (item: { id: number; name: string; userId: number }) => ({
+      ...item,
+      actions: (
+        <ButtonLeftIcon
+          onClick={() => router.push(`/albums/${item.id}`)}
+        ></ButtonLeftIcon>
+      ),
+    })
+  );
 
   const columns = [
     {
@@ -62,6 +64,7 @@ const AlbumsClient = ({ data }: { data: [] }) => {
       dataIndex: "user",
       key: "user",
       width: "22%",
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       render: (_: string, record: any) => {
         const user = userMap.get(record.userId);
         return user ? (

@@ -3,9 +3,8 @@ import ClientComponent from "./ClientComponent";
 export default async function AlbumPage({
   params,
 }: {
-  params: {
-    slug: string;
-  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: any;
 }) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/users/${params.slug}`
